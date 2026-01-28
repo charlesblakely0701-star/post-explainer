@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-gradient: linear-gradient(135deg, #0f0f23 0%, #1a1a3e 50%, #0f0f23 100%);
+}
+
+body {
+  @apply bg-midnight-950 text-gray-100 antialiased;
+  background: var(--bg-gradient);
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-midnight-900/50 rounded;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-midnight-700 rounded hover:bg-midnight-600;
+}
+
+/* Text selection */
+::selection {
+  @apply bg-coral-500/30;
+}
+
+/* Focus styles */
+*:focus-visible {
+  @apply outline-none ring-2 ring-coral-500/50 ring-offset-2 ring-offset-midnight-950;
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Bullet point styling */
+.bullet-point::before {
+  content: '•';
+  @apply text-coral-500 mr-3 text-lg;
+}
+
